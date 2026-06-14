@@ -18,13 +18,49 @@
 
 ## Syntax
 
-| Python         | HolyPython             | Note                          |
-|----------------|------------------------|-------------------------------|
-| `a == b`       | `a = b`                |                               |
-| `a = b`        | `a <- b`               |                               |
-| `[a, ..., b]`  | `[a..b]`               | `a`, `b` non-decreasing `int` |
-| `def f(): ...` | `function f() { ... }` |                               |
-| `class C: ...` | `class C { ... }`      |                               |
+<table>
+	<tr>
+		<td><b>Python</b></td>
+		<td><b>HolyPython</b></td>
+		<td><b>Notes</b></td>
+	</tr>
+	<tr>
+		<td><code>a == b</code></td>
+		<td><code>a = b</code></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><code>a = b</code></td>
+		<td><code>a <- b</code></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><code>[a, ..., b]</code></td>
+		<td><code>[a..b]</code></td>
+		<td>
+			(<code>a</code>,<code>b</code>)
+			non-decreasing <code>int</code>
+		</td>
+	</tr>
+	<tr>
+		<td><code>def f(): ...</code></td>
+		<td><code>function f() { ... }</code></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><code>class C: ...</code></td>
+		<td><code>class C { ... }</code></td>
+		<td></td>
+	</tr>
+</table>
+
+<!-- | Python         | HolyPython             | Note                          | -->
+<!-- |----------------|------------------------|-------------------------------| -->
+<!-- | `a == b`       | `a = b`                |                               | -->
+<!-- | `a = b`        | `a <- b`               |                               | -->
+<!-- | `[a, ..., b]`  | `[a..b]`               | `a`, `b` non-decreasing `int` | -->
+<!-- | `def f(): ...` | `function f() { ... }` |                               | -->
+<!-- | `class C: ...` | `class C { ... }`      |                               | -->
 
 ### Highlighting
 
