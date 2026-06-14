@@ -1,7 +1,10 @@
-# **🙏 HolyPython.** *Python as God intended.*
+"""
+🙏
+**HolyPython.**
+*Python as God intended.*
+"""
 
 import io
-import itertools
 import pathlib
 import re
 import sys
@@ -37,7 +40,7 @@ class AssignmentEditor:
 			if i + 1 < len(self.tokens):
 				next_t = self.tokens[i + 1]
 				if t.string == "<" and next_t.string == "-" and t.end == next_t.start:
-					edited.append(t._replace(string="="))
+					edited.append(t._replace(string="=", end=next_t.end))
 					i += 2
 					continue
 			edited.append(t)
@@ -58,6 +61,32 @@ class DefEditor:
 			edited.append(t)
 		source = tokenize.untokenize(edited)
 		return source
+
+class EqualityEditor:
+	def __init__(self, source):
+		self.source = source
+		self.tokens = get_tokens(source)
+		self.columns = [match.start() for match in re.finditer(r"(?m)^", self.source)]
+
+	def edit_source(self):
+		edited = []
+		for t in self.tokens:
+			if t.string == "=" and self.is_spaced(t):
+				edited.append(t._replace(string="=="))
+				continue
+			edited.append(t)
+		source = tokenize.untokenize(edited)
+		return source
+
+	def get_offset(self, position):
+		row, column = position
+		offset = self.columns[row - 1] + column
+		return offset
+
+	def is_spaced(self, t):
+		start = self.get_offset(t.start)
+		end = self.get_offset(t.end)
+		return self.source[start - 1].isspace() and self.source[end].isspace()
 
 class RangeEditor:
 	def __init__(self, source):
@@ -81,23 +110,25 @@ class RangeEditor:
 			j, split = result
 			start_offset = self.get_offset(t.start)
 			end_offset = self.get_offset(self.tokens[j].end)
-			left_source = self.edit_endpoint_source(t.end, split[0])
-			right_source = self.edit_endpoint_source(split[1], self.tokens[j].start)
+			left_start_offset = self.get_offset(t.end)
+			left_end_offset = self.get_offset(split[0])
+			right_start_offset = self.get_offset(split[1])
+			right_end_offset = self.get_offset(self.tokens[j].start)
+			left_source = RangeEditor(
+				self.source[left_start_offset:left_end_offset]
+			).edit_source()
+			right_source = RangeEditor(
+				self.source[right_start_offset:right_end_offset]
+			).edit_source()
 			edited.append(self.source[source_offset:start_offset])
-			edited.append(f"list(range(({left_source}), ({right_source}) + 1))")
+			edited.append(f"list(range({left_source}, {right_source} + 1))")
 			source_offset = end_offset
 			i = j + 1
 		edited.append(self.source[source_offset:])
 		source = "".join(edited)
 		return source
 
-	def edit_endpoint_source(self, start, end):
-		source = self.source[self.get_offset(start):self.get_offset(end)]
-		source = RangeEditor(source).edit_source()
-		return source
-
 	def find_split(self, start_index):
-		brace_depth = 0
 		bracket_depth = 1
 		paren_depth = 0
 		split = None
@@ -116,12 +147,8 @@ class RangeEditor:
 					paren_depth += 1
 				elif t.string == ")":
 					paren_depth -= 1
-				elif t.string == "{":
-					brace_depth += 1
-				elif t.string == "}":
-					brace_depth -= 1
 				elif split is None:
-					if brace_depth == 0 and paren_depth == 0:
+					if paren_depth == 0:
 						if j + 1 < len(self.tokens):
 							split = self.get_split(t, self.tokens[j + 1])
 		return None
@@ -146,19 +173,15 @@ class RangeEditor:
 			return None
 		return left_dot, right_dot
 
-def run_script(source, path):
-	sys.path.insert(0, str(path.parent))
-	namespace = {
-		"__file__": str(path),
-		"__name__": "__main__",
-		"__package__": None
-	}
-	exec(compile(source, str(path), "exec"), namespace)
+def write_script(source, path):
+	output_path = path.with_suffix(".py")
+	output_path.write_text(source)
 
 if __name__ == "__main__":
 	path = get_path()
 	source = get_source(path)
+	source = EqualityEditor(source).edit_source()
 	source = AssignmentEditor(source).edit_source()
 	source = RangeEditor(source).edit_source()
 	source = DefEditor(source).edit_source()
-	run_script(source, path)
+	write_script(source, path)
