@@ -5,9 +5,9 @@
 	HolyPython
 </h3>
 
-| `.hpy`                               | → | `.py`                        |
-|--------------------------------------|---|------------------------------|
-| ![HolyPython](images/holypython.png) | → | ![Python](images/python.png) |
+| `.hpy`                                    | → | `.py`                             |
+|-------------------------------------------|---|-----------------------------------|
+| ![HolyPython](screenshots/holypython.png) | → | ![Python](screenshots/python.png) |
 
 ## Syntax
 
@@ -17,7 +17,7 @@
 |----------------|------------------------|--------------------------------------|
 | `a == b`       | `a = b`                |                                      |
 | `a = b`        | `a <- b`               |                                      |
-| `[a, ..., b]`  | `[a..b]`               | $($`a`$,$`b`$)$ non-decreasing `int` |
+| `[a, ..., b]`  | `[a..b]`               | `type(a) == type(b) == int and a<=b` |
 | `def f(): ...` | `function f() { ... }` |                                      |
 | `class C: ...` | `class C { ... }`      |                                      |
 
