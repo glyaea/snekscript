@@ -1,7 +1,5 @@
 🙏 **HolyPython.** *Python as God intended.*
 
-## Programming
-
 | Python              | HolyPython             | Note                                   |
 |---------------------|------------------------|----------------------------------------|
 | `a == b`            | `a = b`                |                                        |
@@ -12,25 +10,17 @@
 | `def f(): ...`      | `function f() { ... }` |                                        |
 | `class C: ...`      | `class C { ... }`      |                                        |
 
-## Transpilation
-<table>
-	<tr>
-		<td>Standard</td>
-		<td>uv</td>
-	</tr>
-	<tr>
-		<td>
-			```sh
-			python holypython.py foo.hpy
-			```
-		</td>
-		<td>
-			```sh
-			uv run python holypython.py foo.hpy
-			```
-		</td>
-	</tr>
-</table>
+## Compilation
+
+### Standard
+```sh
+python holypython.py foo.hpy
+```
+
+### `uv`
+```sh
+uv run python holypython.py foo.hpy
+```
 
 ## Testing
 ### Standard
