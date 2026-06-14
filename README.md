@@ -5,18 +5,13 @@
 	HolyPython
 </h3>
 
-<table>
-	<tr>
-		<td><code>.py</code></td>
-		<td><code>.hpy</code></td>
-	</tr>
-	<tr>
-		<td><img src="images/python.png"></td>
-		<td><img src="images/holypython.png"></td>
-	</tr>
-</table>
+| `.hpy`                               |   | `.py`                        |
+|--------------------------------------|---|------------------------------|
+| ![HolyPython](images/holypython.png) | → | ![Python](images/python.png) |
 
 ## Syntax
+
+### Summary
 
 | Python         | HolyPython             | Notes                                  |
 |----------------|------------------------|----------------------------------------|
