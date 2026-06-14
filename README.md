@@ -6,8 +6,8 @@
 </h3>
 
 <p align="center">
-	<img src="images/holypython.png" style="width: min(640px, 49%)">
-	<img src="images/python.png" style="width: min(640px, 49%)">
+	<img src="images/holypython.png" width="480px">
+	<img src="images/python.png" width="480px">
 </p>
 
 ## Syntax
