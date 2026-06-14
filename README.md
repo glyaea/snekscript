@@ -1,7 +1,7 @@
 
-<h1 align="center">🙏 HolyPython</h1>
+<h1 align="center">HolyPython</h1>
 <p align="center">
-	<img src="carbon.png" style="width: min(360px, 80vw)">
+	<img src="carbon.png" style="width: 320px">
 </p>
 
 | Python         | HolyPython             | Note                             |
