@@ -5,10 +5,12 @@
 	HolyPython
 </h3>
 
-<p align="center">
-	<img src="images/holypython.png" width="480px">
-	<img src="images/python.png" width="480px">
-</p>
+<table>
+	<tr>
+		<td><img src="images/holypython.png" width="480px"></td>
+		<td><img src="images/python.png" width="480px"></td>
+	</tr>
+</table>
 
 ## Syntax
 
