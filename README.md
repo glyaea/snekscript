@@ -5,7 +5,7 @@
 	HolyPython
 </h3>
 
-| `.hpy`                                    | → | `.py`                             |
+| `foo.hpy`                                    | → | `foo.py`                             |
 |-------------------------------------------|---|-----------------------------------|
 | ![HolyPython](screenshots/holypython.png) | → | ![Python](screenshots/python.png) |
 
