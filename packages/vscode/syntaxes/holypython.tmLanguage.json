@@ -2,22 +2,70 @@
 	"scopeName": "source.holypython",
 	"patterns": [
 		{
-			"include": "#holypython"
-		},
-		{
 			"include": "source.python"
 		}
 	],
+	"injections": {
+		"L:source.holypython": {
+			"patterns": [
+				{
+					"include": "#holypython"
+				}
+			]
+		}
+	},
 	"repository": {
 		"holypython": {
 			"patterns": [
 				{
-					"name": "keyword.declaration.function.holypython",
-					"match": "\\b(function|extends)\\b"
+					"match": "\\b(class)\\s+([A-Za-z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.python"
+						},
+						"2": {
+							"name": "entity.name.type.class.python"
+						}
+					}
+				},
+				{
+					"name": "storage.type.class.python",
+					"match": "\\bextends\\b"
+				},
+				{
+					"match": "\\b(function)\\s+([A-Za-z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "storage.type.function.python"
+						},
+						"2": {
+							"name": "entity.name.function.python"
+						}
+					}
 				},
 				{
 					"name": "keyword.operator.assignment.holypython",
 					"match": "<-"
+				},
+				{
+					"match": "(\\[)\\s*(?:(\\d+)|([A-Za-z_]\\w*))\\s*(\\.\\.)\\s*(?:(\\d+)|([A-Za-z_]\\w*))\\s*(\\])",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.list.begin.python"
+						},
+						"2": {
+							"name": "constant.numeric.dec.python"
+						},
+						"4": {
+							"name": "keyword.operator.range.holypython"
+						},
+						"5": {
+							"name": "constant.numeric.dec.python"
+						},
+						"7": {
+							"name": "punctuation.definition.list.end.python"
+						}
+					}
 				},
 				{
 					"name": "keyword.operator.range.holypython",
