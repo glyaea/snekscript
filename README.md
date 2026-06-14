@@ -1,42 +1,43 @@
 
-<h1 align="center">HolyPython</h1>
+<h3 align="center">
+	𓆩 𓂋 𓆪
+	<br>
+	HolyPython
+</h3>
+
 <p align="center">
-	<img src="carbon.png" style="width: 320px">
+	<img src="images/holypython.png" style="width: min(640px, 49%)">
+	<img src="images/python.png" style="width: min(640px, 49%)">
 </p>
 
-| Python         | HolyPython             | Note                             |
-|----------------|------------------------|----------------------------------|
-| `a == b`       | `a = b`                |                                  |
-| `a = b`        | `a <- b`               |                                  |
-| `[a, ..., b]`  | `[a..b]`               | `a`, `b` non-decreasing integers |
-| `def f(): ...` | `function f() { ... }` |                                  |
-| `class C: ...` | `class C { ... }`      |                                  |
+## Syntax
 
-### How to transpile HolyPython to Python?
+| Python         | HolyPython             | Note                          |
+|----------------|------------------------|-------------------------------|
+| `a == b`       | `a = b`                |                               |
+| `a = b`        | `a <- b`               |                               |
+| `[a, ..., b]`  | `[a..b]`               | `a`, `b` non-decreasing `int` |
+| `def f(): ...` | `function f() { ... }` |                               |
+| `class C: ...` | `class C { ... }`      |                               |
 
-**Standard**
-
-```sh
-python holypython.py foo.hpy
-```
-
-**`uv`**
-
-```sh
-uv run python holypython.py foo.hpy
-```
-
-### How to enable syntax highlighting?
+### Highlighting
 
 **VSCode**
 
-Create extension:
 ```sh
-cd packages/vscode
+# Create extension
+cd holypython/packages/vscode
 npx --yes @vscode/vsce package
+
+# Install extension
+code --install-extension holypython-0.0.1.vsix
 ```
 
-Install extension:
+## Transpilation
+
+### HolyPython-to-Python
+
 ```sh
-code --install-extension holypython-0.0.1.vsix
+cd holypython
+python holypython.py foo.hpy
 ```
