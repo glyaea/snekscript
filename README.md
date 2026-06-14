@@ -5,7 +5,7 @@
 	HolyPython
 </h3>
 
-| `.hpy`                               |   | `.py`                        |
+| `.hpy`                               | → | `.py`                        |
 |--------------------------------------|---|------------------------------|
 | ![HolyPython](images/holypython.png) | → | ![Python](images/python.png) |
 
@@ -13,13 +13,13 @@
 
 ### Summary
 
-| Python         | HolyPython             | Notes                                  |
-|----------------|------------------------|----------------------------------------|
-| `a == b`       | `a = b`                |                                        |
-| `a = b`        | `a <- b`               |                                        |
-| `[a, ..., b]`  | `[a..b]`               | `a`, `b` are `int`, and `a` $\leq$ `b` |
-| `def f(): ...` | `function f() { ... }` |                                        |
-| `class C: ...` | `class C { ... }`      |                                        |
+| Python         | HolyPython             | Notes                                |
+|----------------|------------------------|--------------------------------------|
+| `a == b`       | `a = b`                |                                      |
+| `a = b`        | `a <- b`               |                                      |
+| `[a, ..., b]`  | `[a..b]`               | $($`a`$,$`b`$)$ non-decreasing `int` |
+| `def f(): ...` | `function f() { ... }` |                                      |
+| `class C: ...` | `class C { ... }`      |                                      |
 
 ### Highlighting
 
