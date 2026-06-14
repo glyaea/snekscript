@@ -18,7 +18,7 @@ class TwoSum:
 				r = r - 1
 
 
-nums = list(range(1, 21))
+nums = list(range(1, 20 + 1))
 target = 25
 
 searcher = TwoSum(nums, target)

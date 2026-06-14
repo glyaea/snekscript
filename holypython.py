@@ -1,6 +1,3 @@
-# 🙏 **HolyPython.** *Python as God intended.*
-
-
 import io
 import pathlib
 import re
