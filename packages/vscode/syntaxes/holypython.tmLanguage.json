@@ -29,10 +29,6 @@
 					}
 				},
 				{
-					"name": "storage.type.class.python",
-					"match": "\\bextends\\b"
-				},
-				{
 					"match": "\\b(function)\\s+([A-Za-z_]\\w*)",
 					"captures": {
 						"1": {
@@ -50,30 +46,6 @@
 				{
 					"name": "keyword.control.flow.python",
 					"match": "\\breturn\\b"
-				},
-				{
-					"match": "(\\[)\\s*(?:(\\d+)|([A-Za-z_]\\w*))\\s*(\\.\\.)\\s*(?:(\\d+)|([A-Za-z_]\\w*))\\s*(\\])",
-					"captures": {
-						"1": {
-							"name": "punctuation.definition.list.begin.python"
-						},
-						"2": {
-							"name": "constant.numeric.dec.python"
-						},
-						"4": {
-							"name": "keyword.operator.range.holypython"
-						},
-						"5": {
-							"name": "constant.numeric.dec.python"
-						},
-						"7": {
-							"name": "punctuation.definition.list.end.python"
-						}
-					}
-				},
-				{
-					"name": "keyword.operator.range.holypython",
-					"match": "\\.\\."
 				}
 			]
 		}
