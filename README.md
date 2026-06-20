@@ -1,7 +1,5 @@
 # 🐍 SnekScript
 
-SnekScript is a Python dialect that compiles to Python.
-
 <table>
 	<tr>
 		<td><img src="examples/two_sum_ii.py.png" /></td>
